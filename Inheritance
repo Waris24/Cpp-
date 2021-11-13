@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+// base class
+class recharge {
+  public:
+  char server[20], name[20];
+  int  amount, number,upi, id;
+  void put() {
+  cout<<"Enter server name: "<<endl;
+  cin>>server;
+  cout<<"Enter Customer name: "<<endl;
+  cin>>name;
+  cout<<"Enter Customer mobile number: "<<endl;
+  cin>>number;
+  cout<<"Enter amount: "<<endl;
+  cin>>amount;
+  cout<<"Enter your UPI ID: "<<endl;
+  cin>>id;
+  cout<<"Enter UPI pin"<<endl;
+  cin>>upi;
+  }
+  void get() {
+  cout<<"\n\tServer name is "<<server<<endl;
+  cout<<"\tCustomer name is "<<name<<endl;
+  cout<<"\tCustomer mobile number is "<<number<<endl;
+  cout<<"\tEntered amount is "<<amount<<endl;
+  cout<<"____________________________________"<<endl;
+  }
+};
+// derived class 1
+class done : public recharge {
+  public:
+  void done_1() {
+  cout<<"\n\t||Recharge done||"<<endl;
+  }
+};
+// derived class 2
+class unlimited_plan : public done {
+  public:
+  void done_2() {
+  cout<<"\nEnjoy your unlimited calls"<<endl;
+  cout<<"Enjoy your Data pack!"<<endl;
+  }
+};
+
+int main () {
+// create object of the plan class
+  unlimited_plan mbl_1;
+// calling members of base class
+  mbl_1.put();
+  mbl_1.get();
+// calling members of derived class 1
+  mbl_1.done_1();
+// calling members of derived class 2
+  mbl_1.done_2();
+  return 0;
+}
